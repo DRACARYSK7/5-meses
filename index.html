@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5 meses — Letícia & Mayumi</title>
+  <style>
+    :root{
+      --bg:#120914; --card:#211226; --card2:#2d1635; --text:#fff7fb; --muted:#d8bddf;
+      --pink:#ff6fae; --lilac:#b883ff; --green:#7dffbc; --red:#ff8a8a; --gold:#ffd66b;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; min-height:100vh; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color:var(--text); background: radial-gradient(circle at top, #3b1648 0%, var(--bg) 42%, #09050b 100%);}
+    .wrap{width:min(920px, 92vw); margin:0 auto; padding:28px 0 60px}
+    .hero{min-height:92vh; display:flex; align-items:center; justify-content:center; text-align:center;}
+    .badge{display:inline-block; border:1px solid rgba(255,255,255,.18); padding:8px 12px; border-radius:999px; color:var(--muted); background:rgba(255,255,255,.06); font-size:14px; margin-bottom:16px}
+    h1{font-size:clamp(38px, 9vw, 86px); line-height:.95; margin:0; letter-spacing:-2px}
+    h2{font-size:clamp(26px, 6vw, 46px); margin:0 0 14px}
+    p{font-size:18px; line-height:1.55; color:var(--muted)}
+    .gradient{background:linear-gradient(90deg,var(--pink),var(--lilac),var(--gold)); -webkit-background-clip:text; color:transparent}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.045)); border:1px solid rgba(255,255,255,.13); border-radius:28px; padding:24px; box-shadow:0 18px 60px rgba(0,0,0,.32); backdrop-filter: blur(12px); margin:18px 0}
+    .btn{border:0; padding:15px 18px; border-radius:18px; background:linear-gradient(90deg,var(--pink),var(--lilac)); color:white; font-weight:800; font-size:16px; cursor:pointer; width:100%; box-shadow:0 12px 30px rgba(255,111,174,.22)}
+    .btn.secondary{background:rgba(255,255,255,.09); box-shadow:none; color:var(--text); border:1px solid rgba(255,255,255,.12)}
+    .grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px}
+    @media(max-width:680px){.grid{grid-template-columns:1fr}.wrap{padding-top:18px}.hero{min-height:88vh}}
+    .stat{background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.09); border-radius:22px; padding:18px}
+    .stat b{font-size:28px; display:block; color:white}.stat span{color:var(--muted)}
+    .screen{display:none; animation:rise .35s ease}.screen.active{display:block}@keyframes rise{from{opacity:0; transform:translateY(10px)}to{opacity:1; transform:none}}
+    .question{font-size:22px; color:white; font-weight:800; margin:10px 0 16px}.option{width:100%; text-align:left; margin:8px 0; background:rgba(255,255,255,.08); color:white; border:1px solid rgba(255,255,255,.12); padding:15px; border-radius:16px; font-size:16px; cursor:pointer}.option:hover{background:rgba(255,255,255,.14)}
+    .option.correct{border-color:var(--green); background:rgba(125,255,188,.13)}.option.wrong{border-color:var(--red); background:rgba(255,138,138,.12)}
+    .feedback{margin-top:14px; padding:14px; border-radius:18px; background:rgba(255,255,255,.08); color:var(--muted); display:none}.feedback.show{display:block}
+    .progress{height:10px; background:rgba(255,255,255,.09); border-radius:999px; overflow:hidden; margin:16px 0}.bar{height:100%; width:0%; background:linear-gradient(90deg,var(--pink),var(--gold)); transition:.3s}
+    .letter{font-size:18px; color:#ffe7f5; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:26px; padding:24px; line-height:1.65}.small{font-size:14px;color:var(--muted)}
+    .heart{position:fixed; pointer-events:none; animation:float 1.2s ease forwards; font-size:22px; z-index:99}@keyframes float{to{transform:translateY(-80px); opacity:0}}
+    .pill{display:inline-block; padding:9px 12px; border-radius:999px; background:rgba(255,255,255,.08); color:var(--muted); margin:4px; font-size:14px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section id="home" class="screen active hero">
+      <div>
+        <div class="badge">29/11 → 29/04 • 5 meses</div>
+        <h1><span class="gradient">Letícia</span><br>& Mayumi</h1>
+        <p>Um mini presente feito na correria, mas com a intenção mais bonita do mundo: transformar nossa conversa, nossa distância e nossos detalhes em um joguinho só nosso.</p>
+        <div class="card">
+          <p><b>De João Pessoa até Mauá</b>, do WhatsApp até as calls, dos áudios às figurinhas, dos “amor” aos “vida”.</p>
+          <button class="btn" onclick="go('intro')">começar nosso quiz</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="intro" class="screen">
+      <div class="card">
+        <h2>Antes de começar…</h2>
+        <p>Esse jogo foi montado com base no nosso WhatsApp exportado. Não é só um quiz: é um museu particular das nossas conversas.</p>
+        <div class="grid">
+          <div class="stat"><b>15.975</b><span>mensagens no arquivo</span></div>
+          <div class="stat"><b>928</b><span>áudios ocultados</span></div>
+          <div class="stat"><b>742</b><span>figurinhas omitidas</span></div>
+          <div class="stat"><b>5 meses</b><span>namorando à distância</span></div>
+        </div>
+        <p class="small">Regra: cada resposta desbloqueia um comentário. Acertando ou errando, no final tem carta.</p>
+        <button class="btn" onclick="startQuiz()">bora</button>
+      </div>
+    </section>
+
+    <section id="quiz" class="screen">
+      <div class="card">
+        <div class="small" id="stepText"></div>
+        <div class="progress"><div class="bar" id="bar"></div></div>
+        <div class="question" id="question"></div>
+        <div id="options"></div>
+        <div class="feedback" id="feedback"></div>
+        <button id="nextBtn" class="btn" style="display:none;margin-top:14px" onclick="nextQuestion()">próxima</button>
+      </div>
+    </section>
+
+    <section id="result" class="screen">
+      <div class="card">
+        <h2>Resultado desbloqueado</h2>
+        <p id="scoreText"></p>
+        <div>
+          <span class="pill">João Pessoa</span><span class="pill">Mauá</span><span class="pill">WhatsApp</span><span class="pill">calls</span><span class="pill">5 meses</span>
+        </div>
+        <button class="btn" onclick="go('letter')" style="margin-top:16px">abrir carta final</button>
+      </div>
+    </section>
+
+    <section id="letter" class="screen">
+      <div class="card">
+        <h2>Mayumi, minha vida</h2>
+        <div class="letter">
+          Hoje a gente faz 5 meses de namoro. E eu sei que parece absurdo eu ter lembrado em cima da hora, mas talvez isso tenha deixado esse presente ainda mais com a nossa cara: meio corrido, meio caos, mas cheio de sentimento de verdade.
+          <br><br>
+          A distância entre João Pessoa e Mauá é grande, mas de algum jeito você virou presença no meu dia. Virou mensagem, virou áudio, virou call, virou saudade, virou rotina, virou amor.
+          <br><br>
+          Eu gosto da gente porque não parece uma coisa comum. A gente tem nossas piadas, nossos ciúmes bobos, nossas conversas aleatórias, nossos momentos de carinho e essa mania de fazer um mundo inteiro caber dentro de uma tela.
+          <br><br>
+          Obrigada por esses 5 meses. Obrigada por ser minha Mayumi, meu amor, minha vida. Que esse seja só mais um capítulo da nossa história — e que ainda venham muitos outros, com menos distância, mais abraço e muito mais nós duas.
+          <br><br>
+          <b>Feliz 5 meses, amor. Eu te amo.</b>
+        </div>
+        <button class="btn secondary" onclick="restart()" style="margin-top:16px">jogar de novo</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const questions = [
+      {q:"Qual é a data oficial do nosso namoro?", a:1, o:["07/10", "29/11", "25/04", "29/04"], f:"29/11. A data que transformou conversa em compromisso, saudade em rotina e distância em plano."},
+      {q:"Qual é a ponte desse relacionamento à distância?", a:2, o:["João Pessoa ↔ Rio de Janeiro", "Mauá ↔ Recife", "João Pessoa ↔ Mauá", "São Paulo ↔ Salvador"], f:"João Pessoa e Mauá. Não é perto, mas aparentemente o amor decidiu ignorar o mapa."},
+      {q:"No arquivo exportado, quem mandou mais mensagens?", a:0, o:["Mayumi", "Letícia", "O WhatsApp sozinho", "As figurinhas"], f:"Mayumi. O placar deu Mayumi na frente, provando cientificamente que ela sustenta assunto quando quer."},
+      {q:"Qual palavra apareceu mais vezes na conversa?", a:3, o:["saudade", "call", "vida", "amor"], f:"Amor apareceu mais de mil vezes. O WhatsApp virou praticamente um cartório emocional."},
+      {q:"O que teve em quantidade absurda na conversa?", a:1, o:["PDF de trabalho", "Áudio e figurinha", "Mensagem formal", "Ata de reunião"], f:"Áudio e figurinha. Porque casal moderno não conversa: manda áudio, figurinha e depois finge normalidade."},
+      {q:"Qual frase apareceu no finalzinho do arquivo exportado?", a:2, o:["bom dia, professora", "vou estudar agora", "Eu não quero você assobiando pra ninguém", "manda o comprovante"], f:"'Eu não quero você assobiando pra ninguém'. O romance moderno também é feito de ciúme específico e fiscalização sonora."},
+      {q:"Qual é o resumo mais honesto da gente?", a:0, o:["Duas pessoas longe tentando ficar perto", "Duas pessoas normais", "Uma planilha sem emoção", "Um grupo de faculdade"], f:"Duas pessoas longe tentando ficar perto. E conseguindo, do nosso jeito."},
+      {q:"O que esse presente tenta provar?", a:3, o:["Que eu sei programar perfeitamente", "Que o WhatsApp pesa muito", "Que esqueci e pronto", "Que mesmo na correria eu quis fazer algo só nosso"], f:"Exatamente. Foi na correria, mas não foi sem amor. Foi feito pensando nela."}
+    ];
+    let i=0, score=0, locked=false;
+    function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); document.getElementById(id).classList.add('active'); window.scrollTo({top:0,behavior:'smooth'});}
+    function startQuiz(){i=0;score=0;go('quiz');render();}
+    function render(){locked=false; document.getElementById('nextBtn').style.display='none'; document.getElementById('feedback').classList.remove('show'); const q=questions[i]; document.getElementById('stepText').textContent=`Pergunta ${i+1} de ${questions.length}`; document.getElementById('bar').style.width=`${(i/questions.length)*100}%`; document.getElementById('question').textContent=q.q; const box=document.getElementById('options'); box.innerHTML=''; q.o.forEach((txt,idx)=>{const b=document.createElement('button'); b.className='option'; b.textContent=txt; b.onclick=(e)=>answer(idx,e); box.appendChild(b);});}
+    function answer(idx,e){if(locked)return; locked=true; const q=questions[i]; const opts=[...document.querySelectorAll('.option')]; opts.forEach((b,k)=>{if(k===q.a)b.classList.add('correct'); if(k===idx && k!==q.a)b.classList.add('wrong');}); if(idx===q.a){score++; hearts(e.clientX||innerWidth/2,e.clientY||innerHeight/2)} document.getElementById('feedback').textContent=q.f; document.getElementById('feedback').classList.add('show'); document.getElementById('nextBtn').style.display='block';}
+    function nextQuestion(){i++; if(i>=questions.length){document.getElementById('bar').style.width='100%'; document.getElementById('scoreText').textContent=`Você fez ${score} de ${questions.length}. Mas o placar é só desculpa: o prêmio real é a carta final.`; go('result')} else render();}
+    function restart(){startQuiz()}
+    function hearts(x,y){for(let n=0;n<8;n++){const h=document.createElement('div'); h.className='heart'; h.textContent=['💖','💘','💕','💗'][Math.floor(Math.random()*4)]; h.style.left=(x+Math.random()*70-35)+'px'; h.style.top=(y+Math.random()*40-20)+'px'; document.body.appendChild(h); setTimeout(()=>h.remove(),1200)}}
+  </script>
+</body>
+</html>
